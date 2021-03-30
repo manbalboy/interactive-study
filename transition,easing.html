@@ -12,7 +12,7 @@
     body {
       position: relative;
       background-color: black;
-      cursor: none;
+      /* cursor: none; */
       width: 100%;
       height: 100%;
     }
@@ -28,6 +28,23 @@
       background-color: red;
       top: 0;
       left: 0;
+      margin: -50px 0 0 -50px;
+      transition: all 500ms ease-in-out;
+    }
+    button {
+      font-size: 40px;
+      font-weight: bold;
+      background: #fff;
+      color:  red;
+      padding: 30px 80px;
+      margin: 50px;
+      cursor: pointer;
+      transition:  all 2s ease;
+      transition-property: height, background, color;
+    }
+    button:hover {
+      background: red;
+      color: #fff;
     }
   </style>
 
@@ -38,7 +55,7 @@
     let cursor_item;
     let mx = 0;
     let my = 0;
-    let speed= 0.01;
+    let speed = 0.09;
 
     window.onload = function () {
 
@@ -46,18 +63,23 @@
       cursor_item = document.querySelector('.cursor_item');
 
 
-      window.addEventListener("mousemove", fun, false)
-
+      window.addEventListener("click", fun, false)
       function fun(e) {
 
         x = e.clientX;
         y = e.clientY;
 
-        h1.innerHTML = `x : ${x}, y : ${y}`;
+        // h1.innerHTML = `x : ${x}, y : ${y}`;
+        cursor_item.style.transform = `translate(${x}px, ${y}px)`
 
       }
-      loop()
+
+      // loop()
     }
+
+
+
+
     function loop() {
       // console.log(x, y);
       mx += (x - mx) * speed;
@@ -70,8 +92,9 @@
 </head>
 
 <body>
-  <h1>test</h1>
+  <!-- <h1>test</h1> -->
   <div class="cursor_item"></div>
+  <button>START</button>
 </body>
 
 </html>
