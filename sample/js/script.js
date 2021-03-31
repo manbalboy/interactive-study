@@ -4,7 +4,7 @@ let mx = 0;
 let my = 0;
 let speed = 0.03;
 let scrollTop = 0;
-let parallax_0, parallax_1, parallax_2, parallax_3, parallax_4, parallax_6, parallax_7, parallax_5;
+let parallax_0, parallax_1, parallax_2, parallax_3, parallax_4, parallax_6, parallax_5;
 let progressBar;
 let _documentHum;
 let _windowHNum;
@@ -18,7 +18,8 @@ window.onload = function () {
     parallax_4 = document.querySelector('#parallax_4');
     parallax_5 = document.querySelector('#parallax_5');
     parallax_6 = document.querySelector('#parallax_6');
-    parallax_7 = document.querySelector('#parallax_7');
+    console.log(parallax_0, parallax_1, parallax_2, parallax_3, parallax_4, parallax_6, parallax_5);
+    // parallax_7 = document.querySelector('#parallax_7');
 
     window.addEventListener('resize', stageResize, false);
     window.addEventListener('mousemove', mouseMove, false);
@@ -32,7 +33,7 @@ function scrollFunc(e) {
     var scrollTop = document.documentElement.scrollTop;
     let per = Math.ceil((scrollTop / (_documentHum - _windowHNum)) * 100);
     progressBar.style.width = per + '%';
-    console.log(parallax_0, parallax_1, parallax_2, parallax_3, parallax_4, parallax_6, parallax_7, parallax_5);
+
     parallax_0.style.transform = `translate3d(0px, ${scrollTop * 0.03}px, 0px)`;
     parallax_1.style.transform = `translate3d(0px, ${-scrollTop * 0.03}px, 0px)`;
     parallax_2.style.transform = `translate3d(0px, ${-scrollTop * 0.12}px, 0px)`;
