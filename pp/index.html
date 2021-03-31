@@ -37,24 +37,48 @@
             z-index: 11;
 
         }
+
+        .progress2 {
+            position: fixed;
+            height: 140px;
+            width: 4px;
+            top: 40%;
+            left: 10px;
+            background-color: black;
+            z-index: 10;
+        }
+
+        .bar2 {
+            position: absolute;
+            width: 4px;
+            height: 140px;
+            top: 0;
+            left: 0;
+            background: yellow;
+            z-index: 11;
+
+        }
     </style>
     <script>
         let scrollTop = 0;
         let bar;
+        let bar2;
 
 
         window.onload = function () {
             bar = document.querySelector('.bar');
+            bar2 = document.querySelector('.bar2');
             window.addEventListener("scroll", function (e) {
                 scrollTop = document.documentElement.scrollTop;
                 // console.log(scrollTop);
 
                 // 화면 width 길이의 스크롤 바 구현, 백분율구하는공식
                 let per = Math.ceil(scrollTop / (document.body.scrollHeight - window.outerHeight) * 100);
-
+                per = per == 99 ? 100 : per;
                 // console.log(bar)
                 bar.style.width = per + '%';
-                console.log(per)
+                bar2.style.height = per + '%';
+                // console.log(per)
             }, false);
         }
 
@@ -65,6 +89,11 @@
     <h1>스크롤</h1>
     <div class="progress">
         <span class="bar"></span>
+
+    </div>
+    <div class="progress2">
+        <span class="bar2"></span>
+
     </div>
 </body>
 
