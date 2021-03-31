@@ -73,6 +73,7 @@
                 // console.log(scrollTop);
 
                 // 화면 width 길이의 스크롤 바 구현, 백분율구하는공식
+                //가로 퍼센트값 = 현재 스크롤 탑 위치 / (문서 전체 길이 - 윈도우 창 높이 ) * 100;
                 let per = Math.ceil(scrollTop / (document.body.scrollHeight - window.outerHeight) * 100);
                 per = per == 99 ? 100 : per;
                 // console.log(bar)
